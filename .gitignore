@@ -5,6 +5,10 @@
 *.json
 *.png
 *.mp4
+*.czi
+*.czipos
+*.pharnyx.dat
+*.tdata
 
 ### macOS ###
 # General
