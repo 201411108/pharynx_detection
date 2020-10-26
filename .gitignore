@@ -2,6 +2,9 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,python
 
 # ignore project's datas
+raw_data/*
+images/*
+videos/*
 *.json
 *.png
 *.mp4
