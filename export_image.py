@@ -56,6 +56,7 @@ class ImageExporter:
             data.save(root_dir + '/' + saved_dir_list[j] + '/' + saved_dir_list[j] + '_' + str(k + 1) + '.png')
           else:
             print('file already existed')
+            break
           # print(root_dir + '/' + saved_dir_list[j] + '/' + saved_dir_list[j] + '_' + str(k + 1) + '.png done')
 
         print(root_dir + '/' + saved_dir_list[j] + ' export done')
