@@ -61,6 +61,10 @@ class ImageExporter:
 
         print(root_dir + '/' + saved_dir_list[j] + ' export done')
 
+  def export_image(self):
+    image_exporter = ImageExporter()
+
+    image_exporter.export_png_from_czi()
 # if __name__ == "__main__":
 #   image_exporter = ImageExporter()
 #   image_exporter.export_png_from_czi()

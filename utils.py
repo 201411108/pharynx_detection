@@ -64,6 +64,13 @@ class DirCreator:
           os.mkdir(dir_name)
           print(dir_name, 'created')
 
+  def create_dir(self):
+    dir_creator = DirCreator()
+
+    dir_creator.create_root_dir()
+    dir_creator.create_czi_dir()
+    dir_creator.create_image_dir()
+
 class ResultWriter:
 
   def pythagoras_score(self, x, y, gt_x, gt_y):
