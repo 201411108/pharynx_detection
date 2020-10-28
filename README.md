@@ -8,6 +8,10 @@
 ### install requirements
   ```pip install requirements.txt```
 
-## Modules
+## Module informations
 1. utils.py
-  * DirCreator : 프로그램 실행 결과를 저장하기 위한 경로를 생성하는 class
+  * DirCreator : Class that generates a path to save the results of a program's execution
+2. export_image.py
+  * ImageExporter : Class for exporting images corresponding to each animal from the czi file
+3. video_convertor.py
+  * VideoConvertor : Class that converts the extracted image into a moving image corresponding to each animal in the czi file
