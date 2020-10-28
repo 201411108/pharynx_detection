@@ -13,6 +13,9 @@ videos/*
 *.pharnyx.dat
 *.tdata
 
+# ignore goturn
+goturn.*
+
 ### macOS ###
 # General
 .DS_Store
