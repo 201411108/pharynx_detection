@@ -1,5 +1,7 @@
 import os
 import natsort
+import json
+import math
 
 class DirCreator:
   """프로그램 실행 결과를 저장하기 위한 디렉토리를 생성하는 class"""
@@ -62,6 +64,42 @@ class DirCreator:
           os.mkdir(dir_name)
           print(dir_name, 'created')
 
+class ResultWriter:
+
+  def pythagoras_score(self, x, y, gt_x, gt_y):
+    x_diff = int(math.pow(x - gt_x, 2))
+    y_diff = int(math.pow(y - gt_y, 2))
+
+    return math.sqrt(x_diff + y_diff)
+
+  def write_txt(self, score_list, fname, sep=' '):
+    """deprecated
+    list를 받아 txt 파일을 생성하는 함수
+      input : score_list - 대상 리스트, fname - 생성할 파일 이름, sep - 간격(default = ' ')
+      output : 없음. txt 파일 생성됨
+    """
+    file = open(fname, 'w')
+    vstr = ''
+
+    for a in score_list:
+      for b in a:
+        vstr = vstr + str(b) + sep
+      vstr = vstr.rstrip(sep)
+      vstr = vstr + '\n'
+
+    file.writelines(vstr)
+    file.close()
+
+  def write_json(self, score_data, result_file_name):
+    """
+    결과를 json 파일로 작성하는 함수
+      input : score_data - 정보가 저장된 객체, result_file_name - 경로 + 해당 동물 이름을 갖고 있는 결과 파일 이름
+      output : json 파일
+    """
+    result_file = result_file_name + '.json'
+
+    with open(result_file, 'w', encoding='utf-8') as json_file:
+      json.dump(score_data, json_file, ensure_ascii=False, indent='\t')
 
 # if __name__ == '__main__':
 #   dir_creator = DirCreator()
@@ -69,3 +107,11 @@ class DirCreator:
 #   dir_creator.create_root_dir()
 #   dir_creator.create_czi_dir()
 #   dir_creator.create_image_dir()
+
+  # data = {}
+  # data['name'] = 'kim'
+  # data['age'] = 26
+  # data['favorite'] = ['sing', 'game']
+
+  # rw = ResultWriter()
+  # rw.write_json(data, 'test')
