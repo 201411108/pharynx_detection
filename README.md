@@ -15,3 +15,9 @@
   * ImageExporter : Class for exporting images corresponding to each animal from the czi file
 3. video_convertor.py
   * VideoConvertor : Class that converts the extracted image into a moving image corresponding to each animal in the czi file
+
+## How to run code
+1. make directory name `raw_data`
+2. put czi files in `raw_data`
+3. put data details in `raw_data/data_details`
+4. `python main.py`
