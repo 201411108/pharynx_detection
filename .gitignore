@@ -12,7 +12,7 @@ videos/*
 *.czipos
 *.pharnyx.dat
 *.tdata
-./keynotes/*
+keynotes/*
 *.key
 # ignore goturn
 goturn.*
