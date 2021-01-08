@@ -5,6 +5,7 @@
 raw_data/*
 images/*
 videos/*
+labels/*
 *.json
 *.png
 *.mp4
