@@ -34,9 +34,11 @@ class ImageExporter:
     else:
       scene_info = 25
 
+    saved_dir_list = natsort.natsorted(os.listdir(self.saved_img_dir))
+
     for i in range(scene_info):
       img, time_info = self.read_czi(self.czi_file, i)
-      saved_dir_list = natsort.natsorted(os.listdir(self.saved_img_dir))
+      print(czi_name, str(i + 1), 'animal is started=========')
 
       for j in range(time_info):
         file_name = self.saved_img_dir + saved_dir_list[i] + '/' + saved_dir_list[i] + '_' + str(j + 1) + self.saved_img_type
@@ -49,7 +51,7 @@ class ImageExporter:
           print('file alread existed')
           break
 
-        print(file_name, 'is done')
+      print(czi_name, str(i + 1),  'animal is done============')
 
 if __name__ == "__main__":
   parser = argparse.ArgumentParser()
