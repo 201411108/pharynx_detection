@@ -6,7 +6,10 @@
 * opencv-contrib-python
 
 ### install requirements
-  ```pip install requirements.txt```
+  ```
+  pip install --upgrade pip
+  pip install -r requirements.txt
+  ```
 
 ## Module informations
 1. utils.py
