@@ -25,8 +25,8 @@ class DirCreator:
       os.mkdir(self.VIDEO_ROOT)
       # print('Video directory created')
 
-    if not os.path.isdir(self.RESULT_ROOT):
-      os.mkdir(self.RESULT_ROOT)
+    # if not os.path.isdir(self.RESULT_ROOT):
+    #   os.mkdir(self.RESULT_ROOT)
       # print('Result directory created')
 
   def create_czi_dir(self):
@@ -43,8 +43,8 @@ class DirCreator:
         os.mkdir(self.VIDEO_ROOT + czi_number)
         # print(self.VIDEO_ROOT + czi_number, 'directory created')
 
-      if not os.path.isdir(self.RESULT_ROOT + czi_number):
-        os.mkdir(self.RESULT_ROOT + czi_number)
+      # if not os.path.isdir(self.RESULT_ROOT + czi_number):
+      #   os.mkdir(self.RESULT_ROOT + czi_number)
         # print(self.RESULT_ROOT + czi_number, 'directory created')
 
   def create_image_dir(self):
