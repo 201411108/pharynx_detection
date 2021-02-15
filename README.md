@@ -1,4 +1,7 @@
 # pharynx_detection
+- export `.png` files from `.czi` file
+- convert `.png` files to `mp4` file
+- originally purposed for `goturn` and `YOLO v3`, but it is deprecated(since 2021. 1. 26)
 
 ## Requirements
 * python 3.6.5 ++
