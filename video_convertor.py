@@ -1,15 +1,12 @@
-import cv2
+import cv2, os, sys, natsort, argparse
 import numpy as np
-import os
-import sys
-from os.path import isfile, join
-import natsort
 
 class VideoConvertor:
-  path_in_root = ['./images/026/', './images/027/', './images/028/', './images/029/', './images/030/']
-  path_out_root = ['./videos/026/', './videos/027/', './videos/028/', './videos/029/', './videos/030/']
-
   FPS = 50
+
+  def __init__(self, input_img_dir, output_dir):
+    self.input_img_dir = input_img_dir
+    self.output_dir = output_dir
 
   def make_video_from_images(self, path_in_dir, path_out):
     """
@@ -26,7 +23,7 @@ class VideoConvertor:
       return
     else:
       frame_array = []
-      files = [f for f in os.listdir(path_in_dir) if isfile(join(path_in_dir, f))]
+      files = [f for f in os.listdir(path_in_dir) if os.path.isfile(os.path.join(path_in_dir, f))]
 
       # file 이름순으로 정렬
       sorted_files = natsort.natsorted(files)
@@ -63,34 +60,23 @@ class VideoConvertor:
     
     print(output, ' done')
 
-  def converse_video(self):
-    video_convertor = VideoConvertor()
+if __name__ == "__main__":
+  parser = argparse.ArgumentParser()
+  parser.add_argument('--input_img_dir', type=str, default='./images/026/', help='directory contains images that we want to convert into video')
+  parser.add_argument('--output_dir', type=str, default='./videos/026/', help='directory for saving converted videos')
 
-    for i in range(len(video_convertor.path_in_root)):
-      input_dir = video_convertor.path_in_root[i]
-      output_dir = video_convertor.path_out_root[i]
+  opt = parser.parse_args()
 
-      animals = natsort.natsorted(os.listdir(input_dir))
+  IMAGE_DIR = opt.input_img_dir
+  VIDEO_DIR = opt.output_dir
 
-      for animal in animals:
-        print(animal, 'translated started', '=' * 15)
-        # 수정됨, 동영상 이름이 동물 번호이기 때문에 굳이 폴더로 만들 필요가 없었음, 수정 완료
-        video_convertor.make_video_from_images(input_dir + animal + '/', output_dir + animal + '.mp4')
-        # print(output_dir + animal + '.mp4')
-        print(animal, 'translated finished', '=' * 14)
+  videoConvertor = VideoConvertor(IMAGE_DIR, VIDEO_DIR)
 
-# if __name__ == "__main__":
-#   videoConvertor = VideoConvertor()
+  animals = natsort.natsorted(os.listdir(IMAGE_DIR))
 
-#   for i in range(len(videoConvertor.path_in_root)):
-#     input_dir = videoConvertor.path_in_root[i]
-#     output_dir = videoConvertor.path_out_root[i]
-
-#     animals = natsort.natsorted(os.listdir(input_dir))
-
-#     for animal in animals:
-#       print(animal, 'translated started', '=' * 15)
-#       # 수정됨, 동영상 이름이 동물 번호이기 때문에 굳이 폴더로 만들 필요가 없었음, 수정 완료
-#       videoConvertor.make_video_from_images(input_dir + animal + '/', output_dir + animal + '.mp4')
-#       # print(output_dir + animal + '.mp4')
-#       print(animal, 'translated finished', '=' * 14)
+  for animal in animals:
+    print(animal, 'translated started', '=' * 15)
+    # 수정됨, 동영상 이름이 동물 번호이기 때문에 굳이 폴더로 만들 필요가 없었음, 수정 완료
+    videoConvertor.make_video_from_images(IMAGE_DIR + animal + '/', VIDEO_DIR + animal + '.mp4')
+    # print(output_dir + animal + '.mp4')
+    print(animal, 'translated finished', '=' * 14)
