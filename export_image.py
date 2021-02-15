@@ -2,7 +2,6 @@ from aicsimageio.readers.czi_reader import CziReader
 import numpy as np
 import cv2, os, natsort, argparse
 from PIL import Image
-import cv2
 
 """
 Scene info : 0부터 동물 개수 - 1까지, 각 mapping된 동물 정보는 세부 데이터 폴더(data_details) 참고
