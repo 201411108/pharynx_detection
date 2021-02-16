@@ -56,7 +56,7 @@ class VideoConvertor:
 
           count += 1
           if count % 100 == 0 or count == total:
-            print('Processing : ', count, ' / ', total)
+            print('Processing : ', '%.0f' % (count / total * 100), '% (', count, '/', total, ')')
     
     print(output, ' done')
 
@@ -75,8 +75,12 @@ if __name__ == "__main__":
   animals = natsort.natsorted(os.listdir(IMAGE_DIR))
 
   for animal in animals:
-    print(animal, 'translated started', '=' * 15)
+    if animal == '.DS_Store':
+      print('skip', animal)
+      continue
+      # os.remove(IMAGE_DIR + animal)
+    print(animal, 'conversion started', '=' * 15)
     # 수정됨, 동영상 이름이 동물 번호이기 때문에 굳이 폴더로 만들 필요가 없었음, 수정 완료
     videoConvertor.make_video_from_images(IMAGE_DIR + animal + '/', VIDEO_DIR + animal + '.mp4')
     # print(output_dir + animal + '.mp4')
-    print(animal, 'translated finished', '=' * 14)
+    print(animal, 'conversion finished', '=' * 14)
