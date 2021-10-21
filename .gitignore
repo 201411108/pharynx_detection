@@ -1,10 +1,25 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,visualstudiocode,python
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,visualstudiocode,python
 
+# ignore YOLO v3
+PyTorch-YOLOv3/*
+
 # ignore project's datas
+raw_data/*
+images/*
+videos/*
+labels/*
 *.json
 *.png
 *.mp4
+*.czi
+*.czipos
+*.pharnyx.dat
+*.tdata
+keynotes/*
+*.key
+# ignore goturn
+goturn.*
 
 ### macOS ###
 # General
