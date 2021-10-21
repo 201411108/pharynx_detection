@@ -1,7 +1,7 @@
 # pharynx_detection
 
-- 20.10 ~ 21.04
-- Data preprocessing codes for pharnyx detection
+> 2020년 10월 ~ 2021년 04월
+> Data preprocessing codes for pharnyx detection
 
 ## Requirements
 
